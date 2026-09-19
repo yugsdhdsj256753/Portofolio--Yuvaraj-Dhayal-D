@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Search — Yuvaraj Dhayal D</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+<nav>
+<a href="index.html">about</a>
+<a href="blog.html">blog</a>
+<a href="Yuvaraj_Dhayal_Resume.pdf" target="_blank">cv</a>
+<a class="search-icon" href="search.html" aria-label="Search" title="Search">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+<circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path>
+</svg>
+</a>
+</nav>
+</header>
+<main class="search-page">
+<h1>Search</h1>
+<form class="search-form" id="searchForm">
+<input id="searchInput" type="search" placeholder="Search portfolio..." autocomplete="off">
+<button type="submit">Search</button>
+</form>
+<div id="searchResults" class="search-results"></div>
+</main>
+<footer>© 2026 Yuvaraj Dhayal D</footer>
+<script>
+const pages = [
+ {title:"About", url:"index.html", text:"Yuvaraj Dhayal D Analog IC Design Engineer M.Tech VLSI Design Vellore Institute of Technology CMOS technology analog circuit design semiconductor devices Cadence Virtuoso operational amplifiers bandgap references PLLs LDOs analog layout RFIC low-power CMOS"},
+ {title:"Two-Stage CMOS Operational Amplifier Design", url:"blog.html#opamp", text:"two stage CMOS operational amplifier UMC 180 nm Cadence Virtuoso analog IC design"},
+ {title:"Type-I and Type-II PLL Design", url:"blog.html#pll", text:"Type I Type II PLL phase detector charge pump VCO loop filter"},
+ {title:"CMOS Bandgap Reference Design", url:"blog.html#bgr", text:"CMOS bandgap reference PTAT CTAT error amplifier"},
+ {title:"Low-Power 8×8 SRAM Array", url:"blog.html#sram", text:"low power SRAM array sleep transistors stacked SRAM cells leakage dynamic power"},
+ {title:"CMOS LDO Design", url:"blog.html#ldo", text:"CMOS LDO low dropout regulator bandgap reference OTA PMOS compensation"},
+ {title:"Contact", url:"index.html#contact", text:"Analog IC Design internships full-time opportunities research collaborations semiconductor engineering roles"}
+];
+
+const input=document.getElementById("searchInput");
+const results=document.getElementById("searchResults");
+const form=document.getElementById("searchForm");
+
+function runSearch(){
+  const q=input.value.trim().toLowerCase();
+  if(!q){results.innerHTML='<p class="search-empty">Type something to search the portfolio.</p>';return;}
+  const words=q.split(/\s+/).filter(Boolean);
+  const matches=pages.filter(p=>words.every(w=>(p.title+" "+p.text).toLowerCase().includes(w)));
+  if(!matches.length){
+    results.innerHTML='<p class="search-empty">No results found for <strong>'+q.replace(/[&<>]/g,"")+'</strong>.</p>';
+    return;
+  }
+  results.innerHTML=matches.map(p=>'<div class="search-item"><a href="'+p.url+'">'+p.title+'</a><p>'+p.text+'</p></div>').join("");
+}
+form.addEventListener("submit",e=>{e.preventDefault();runSearch();});
+input.addEventListener("input",runSearch);
+runSearch();
+</script>
+</body>
+</html>

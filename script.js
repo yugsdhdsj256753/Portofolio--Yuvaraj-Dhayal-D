@@ -1,0 +1,1 @@
+/* Search is implemented in search.html. */

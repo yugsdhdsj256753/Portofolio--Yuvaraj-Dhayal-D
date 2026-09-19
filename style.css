@@ -1,0 +1,174 @@
+*{box-sizing:border-box}
+html{
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body{
+  margin:0;
+  padding:0;
+  background:#fff;
+  color:#333;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:15px;
+  line-height:1.65;
+  font-weight:400;
+}
+.site-header,main,footer{
+  width:850px;
+  max-width:calc(100% - 50px);
+  margin-left:auto;
+  margin-right:auto;
+}
+.site-header{padding-top:24px}
+nav{text-align:right}
+nav a{
+  color:#c2185b;
+  text-decoration:none;
+  margin-left:21px;
+  font-size:15px;
+  font-weight:400;
+}
+nav a:hover{text-decoration:underline}
+nav a.active{color:#333}
+main{margin-top:46px;margin-bottom:58px}
+.intro{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 220px;
+  gap:52px;
+  align-items:start;
+}
+h1{
+  margin:0 0 3px;
+  color:#2f2f2f;
+  font-size:29px;
+  line-height:1.25;
+  font-weight:400;
+  letter-spacing:0;
+}
+.title{
+  margin:0 0 23px;
+  color:#444;
+  font-size:17px;
+  line-height:1.45;
+  font-weight:400;
+}
+.intro p{margin:0 0 15px}
+.profile-photo{
+  display:block;
+  width:220px;
+  height:220px;
+  object-fit:cover;
+  border-radius:2px;
+}
+.affiliation{
+  margin:12px 0 0;
+  color:#444;
+  font-size:14px;
+  line-height:1.5;
+  font-weight:400;
+}
+.affiliation strong{color:#333;font-weight:400}
+.section-title{
+  margin:47px 0 15px;
+  color:#333;
+  font-size:23px;
+  line-height:1.3;
+  font-weight:400;
+}
+.posts{margin-top:0}
+.post{
+  display:block;
+  margin-bottom:6px;
+  font-size:15px;
+  line-height:1.55;
+  font-weight:400;
+}
+.post time{color:#555;font-weight:400}
+.post time::after{content:"  |  "}
+.post a{
+  color:#c2185b;
+  text-decoration:none;
+  font-weight:400;
+}
+.post a:hover{text-decoration:underline}
+.contact p{margin-bottom:14px}
+.contact a{
+  color:#c2185b;
+  text-decoration:none;
+  margin-right:15px;
+  font-weight:400;
+}
+.contact a:hover{text-decoration:underline}
+footer{
+  padding:20px 0 30px;
+  border-top:1px solid #eee;
+  color:#888;
+  font-size:13px;
+  font-weight:400;
+}
+article{margin:34px 0}
+article h2{
+  font-size:21px;
+  line-height:1.35;
+  font-weight:400;
+  color:#333;
+  margin:0 0 3px;
+}
+article .date{font-size:13px;color:#777;margin-bottom:12px}
+article a{color:#c2185b}
+@media(max-width:720px){
+ .site-header,main,footer{max-width:calc(100% - 32px)}
+ .intro{grid-template-columns:1fr;gap:22px}
+ .profile-photo{width:200px;height:200px}
+ h1{font-size:28px}
+ .post{display:block;margin-bottom:12px}
+}
+
+.search-wrap{display:inline-block;margin-left:18px;position:relative;vertical-align:middle}
+.search-button{
+  border:0;background:none;padding:0;cursor:pointer;color:#c2185b;
+  width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;
+}
+.search-button svg{width:16px;height:16px;stroke:currentColor}
+.search-box{
+  display:none;position:absolute;right:0;top:28px;width:230px;
+  background:#fff;border:1px solid #ddd;padding:8px;z-index:20;
+}
+.search-box.open{display:flex;gap:6px}
+.search-box input{
+  width:100%;border:1px solid #ccc;padding:6px 8px;
+  font:400 14px "Helvetica Neue",Helvetica,Arial,sans-serif;outline:none;
+}
+.search-box input:focus{border-color:#c2185b}
+.search-result{
+  margin-top:8px;font-size:13px;line-height:1.4;
+}
+.search-result a{color:#c2185b;text-decoration:none}
+.search-result a:hover{text-decoration:underline}
+
+.search-icon{
+  display:inline-flex;
+  vertical-align:middle;
+  margin-left:18px;
+  color:#c2185b;
+  text-decoration:none;
+}
+.search-icon svg{width:16px;height:16px}
+.search-page h1{font-weight:400}
+.search-form{display:flex;gap:8px;margin:22px 0 28px}
+.search-form input{
+  flex:1;max-width:520px;padding:9px 11px;border:1px solid #ccc;
+  font:400 15px "Helvetica Neue",Helvetica,Arial,sans-serif;outline:none;
+}
+.search-form input:focus{border-color:#c2185b}
+.search-form button{
+  padding:9px 15px;border:0;background:#c2185b;color:#fff;
+  font:400 15px "Helvetica Neue",Helvetica,Arial,sans-serif;cursor:pointer
+}
+.search-results{max-width:720px}
+.search-item{margin:0 0 18px}
+.search-item a{color:#c2185b;text-decoration:none;font-size:16px}
+.search-item a:hover{text-decoration:underline}
+.search-item p{margin:3px 0 0;color:#666;font-size:14px}
+.search-empty{color:#777}
