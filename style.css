@@ -54,12 +54,11 @@ h1{
   font-weight:400;
 }
 .intro p{margin:0 0 15px}
-.profile-photo{
-  display:block;
-  width:220px;
-  height:220px;
-  object-fit:cover;
-  border-radius:2px;
+.profile-photo {
+    width: 275px;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 .affiliation{
   margin:12px 0 0;
