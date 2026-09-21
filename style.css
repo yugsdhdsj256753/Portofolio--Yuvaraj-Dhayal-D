@@ -34,8 +34,8 @@ nav a.active{color:#333}
 main{margin-top:46px;margin-bottom:58px}
 .intro{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 220px;
-  gap:52px;
+  grid-template-columns:minmax(0,1fr) 275px;
+  gap:40px;
   align-items:start;
 }
 h1{
