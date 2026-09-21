@@ -57,7 +57,6 @@ h1{
 .profile-photo {
     width: 275px;
     height: auto;
-    object-fit: contain;
     display: block;
 }
 .affiliation{
