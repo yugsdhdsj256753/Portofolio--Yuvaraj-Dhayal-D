@@ -7,9 +7,6 @@
 
     <title>MOSFET Common-Source Amplifier | Yuvaraj Dhayal D</title>
 
-    <meta name="description"
-        content="A practical guide to the MOSFET common-source amplifier, covering biasing, gain, transconductance, output resistance, active loads and source degeneration.">
-
     <style>
 
         /* =========================
@@ -17,347 +14,320 @@
            ========================= */
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
-            color: #172033;
-            line-height: 1.75;
+            background: #050505;
+            color: #eeeeee;
+            line-height: 1.8;
         }
 
-
-        /* =========================
-           MAIN CONTAINER
-           ========================= */
-
-        .container {
-            max-width: 580px;
-            margin: 0 auto;
-            padding: 55px 20px 80px;
+        :root {
+            --magenta: #ff00aa;
+            --magenta-light: #ff4dc4;
+            --black: #050505;
+            --card: #101010;
+            --border: #292929;
+            --text: #eeeeee;
+            --muted: #aaaaaa;
         }
 
-
         /* =========================
-           BACK BUTTON
+           HEADER
            ========================= */
 
-        .back {
-            display: inline-block;
-            margin-bottom: 45px;
+        header {
+            background: #050505;
+            border-bottom: 1px solid var(--border);
+            padding: 22px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-            color: #374151;
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            color: var(--magenta);
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav a {
+            color: #ffffff;
             text-decoration: none;
-
-            font-size: 16px;
+            margin-left: 25px;
+            font-size: 14px;
         }
 
-        .back:hover {
-            color: #e91e63;
+        .nav a:hover {
+            color: var(--magenta);
         }
-
 
         /* =========================
-           BLOG HEADER
+           HERO
            ========================= */
 
-        .article-header {
-            margin-bottom: 45px;
+        .hero {
+            max-width: 1000px;
+            margin: auto;
+            padding: 90px 25px 60px;
         }
-
-
-        /* Hide category badge */
 
         .tag {
-            display: none;
-        }
-
-
-        /* Main title */
-
-        h1 {
-            font-size: 38px;
-            line-height: 1.2;
-
-            letter-spacing: -0.8px;
-
-            font-weight: 500;
-
+            display: inline-block;
+            color: var(--magenta);
+            border: 1px solid var(--magenta);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
             margin-bottom: 20px;
-
-            color: #172033;
         }
 
-
-        /* Subtitle */
-
-        .subtitle {
-            font-size: 17px;
-
-            line-height: 1.75;
-
-            color: #374151;
-
-            margin-bottom: 22px;
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 20px;
         }
 
+        .hero h1 span {
+            color: var(--magenta);
+        }
 
-        /* Author */
+        .hero p {
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 800px;
+        }
 
         .author {
-            margin-top: 20px;
-
+            margin-top: 25px;
+            color: #888888;
             font-size: 14px;
-
-            color: #64748b;
         }
-
 
         /* =========================
            ARTICLE
            ========================= */
 
-        article {
-            background: transparent;
-
-            padding: 0;
-
-            border-radius: 0;
-
-            box-shadow: none;
+        .article {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px 25px 80px;
         }
 
-
-        /* =========================
-           HEADINGS
-           ========================= */
-
-        h2 {
-            font-size: 27px;
-
-            margin-top: 45px;
-
+        .article h2 {
+            color: var(--magenta);
+            font-size: 30px;
+            margin-top: 65px;
             margin-bottom: 18px;
-
-            line-height: 1.3;
-
-            color: #172033;
         }
 
-        h3 {
-            font-size: 21px;
-
-            margin-top: 30px;
-
+        .article h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-top: 40px;
             margin-bottom: 12px;
         }
 
-
-        /* =========================
-           PARAGRAPHS
-           ========================= */
-
-        p {
+        .article p {
+            color: #d3d3d3;
+            font-size: 16px;
             margin-bottom: 20px;
-
-            color: #172033;
         }
 
+        .article strong {
+            color: var(--magenta-light);
+        }
 
         /* =========================
-           LISTS
-           ========================= */
-
-        ul {
-            margin: 15px 0 25px 25px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-
-        /* =========================
-           EQUATIONS
+           EQUATION BOX
            ========================= */
 
         .equation {
-            background: #f5f6f8;
-
-            border-left: 3px solid #172033;
-
-            padding: 16px 18px;
-
-            margin: 22px 0;
-
+            background: #0c0c0c;
+            border-left: 4px solid var(--magenta);
+            border-radius: 6px;
+            padding: 22px;
+            margin: 25px 0;
+            text-align: center;
             font-family: "Courier New", monospace;
-
-            font-size: 16px;
-
+            color: #ffffff;
+            font-size: 18px;
             overflow-x: auto;
         }
 
-
         /* =========================
-           IMPORTANT BOX
+           INFO BOX
            ========================= */
 
-        .important {
-            background: #f5f6f8;
+        .info-box {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 0, 170, 0.10),
+                rgba(255, 0, 170, 0.02)
+            );
 
-            border-radius: 8px;
-
-            padding: 18px 20px;
-
-            margin: 25px 0;
+            border: 1px solid rgba(255, 0, 170, 0.35);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
         }
 
-        .important strong {
-            display: block;
-
-            margin-bottom: 6px;
+        .info-box h3 {
+            color: var(--magenta);
+            margin-top: 0;
         }
-
 
         /* =========================
-           CIRCUIT DIAGRAMS
+           CIRCUIT DIAGRAM
            ========================= */
 
         .diagram {
+            background: #ffffff;
+            color: #000000;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px auto;
             text-align: center;
+            max-width: 650px;
+            border: 2px solid var(--magenta);
+        }
 
-            background: transparent;
-
-            color: #172033;
-
-            padding: 0;
-
-            border-radius: 0;
-
-            margin: 30px 0;
-
-            overflow-x: auto;
-
+        .diagram pre {
             font-family: "Courier New", monospace;
-
-            white-space: pre;
-
-            font-size: 14px;
+            font-size: 17px;
+            line-height: 1.4;
+            overflow-x: auto;
         }
 
-
-        /* Real image */
-
-        .diagram img {
-            display: block;
-
-            width: 100%;
-
-            max-width: 500px;
-
-            height: auto;
-
-            margin: 0 auto;
+        .caption {
+            text-align: center;
+            color: #888888;
+            font-size: 13px;
+            margin-top: -15px;
+            margin-bottom: 30px;
         }
-
 
         /* =========================
-           TABLES
+           TABLE
            ========================= */
+
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
 
         table {
             width: 100%;
-
             border-collapse: collapse;
-
-            margin: 25px 0;
+            background: var(--card);
         }
 
         th,
         td {
-            border-bottom: 1px solid #ddd;
-
-            padding: 13px;
-
+            padding: 14px;
+            border: 1px solid var(--border);
             text-align: left;
         }
 
         th {
-            background: #f3f4f6;
+            color: var(--magenta);
+            background: #151515;
         }
 
+        td {
+            color: #cccccc;
+        }
 
         /* =========================
-           TAKEAWAYS
+           LIST
            ========================= */
 
-        .takeaways {
-            background: #f5f6f8;
-
-            padding: 20px;
-
-            border-radius: 8px;
-
-            margin-top: 30px;
+        ul {
+            margin: 20px 0 25px 25px;
         }
 
-        .takeaways li {
+        li {
             margin-bottom: 10px;
+            color: #cccccc;
         }
 
+        li::marker {
+            color: var(--magenta);
+        }
 
         /* =========================
-           REFERENCE
+           HIGHLIGHT
            ========================= */
 
-        .reference {
-            margin-top: 45px;
-
-            padding-top: 25px;
-
-            border-top: 1px solid #ddd;
-
-            font-size: 14px;
-
-            color: #666;
+        .highlight {
+            color: var(--magenta);
+            font-weight: bold;
         }
 
-        .reference a {
-            color: #333;
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 35px 20px;
+            color: #777777;
         }
 
+        footer span {
+            color: var(--magenta);
+        }
 
         /* =========================
            MOBILE
            ========================= */
 
-        @media (max-width: 650px) {
+        @media (max-width: 700px) {
 
-            .container {
-                padding: 35px 20px 60px;
+            header {
+                padding: 18px 20px;
             }
 
-            h1 {
-                font-size: 32px;
+            .nav a {
+                margin-left: 10px;
             }
 
-            h2 {
-                font-size: 25px;
+            .hero {
+                padding-top: 60px;
             }
 
-            .subtitle {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
                 font-size: 16px;
             }
 
-            .diagram {
-                font-size: 11px;
+            .article h2 {
+                font-size: 26px;
             }
 
-            .equation {
-                font-size: 14px;
+            .article h3 {
+                font-size: 20px;
+            }
+
+            .diagram pre {
+                font-size: 13px;
             }
         }
 
@@ -367,713 +337,639 @@
 
 <body>
 
-    <div class="container">
+    <!-- =========================
+         HEADER
+         ========================= -->
 
+    <header>
 
-        <!-- =========================
-             BACK TO PORTFOLIO
-             ========================= -->
+        <div class="nav">
 
-        <a href="index.html" class="back">
-            ← Back to Portfolio
-        </a>
-
-
-        <!-- =========================
-             BLOG HEADER
-             ========================= -->
-
-        <header class="article-header">
-
-            <span class="tag">
-                ANALOG IC DESIGN
-            </span>
-
-            <h1>
-                MOSFET Common-Source Amplifier
-            </h1>
-
-            <p class="subtitle">
-                Understanding the operation, gain, biasing, active loads,
-                output resistance and source degeneration of one of the
-                fundamental building blocks in CMOS analog design.
-            </p>
-
-            <div class="author">
-                By <strong>Yuvaraj Dhayal D</strong> · Analog IC Design
+            <div class="logo">
+                YUVRAJ
             </div>
 
-        </header>
-
-
-        <!-- =========================
-             ARTICLE
-             ========================= -->
-
-        <article>
-
-
-            <!-- INTRODUCTION -->
-
-            <h2>
-                Introduction
-            </h2>
-
-            <p>
-                The common-source amplifier is one of the most fundamental
-                building blocks in analog circuit design. It is widely used
-                in CMOS amplifiers, operational amplifiers, OTAs, comparators
-                and other analog integrated circuits.
-            </p>
-
-            <p>
-                The basic idea is simple: a small change in the MOSFET gate
-                voltage produces a change in drain current, and the load
-                converts that current variation into an output voltage.
-            </p>
-
-            <div class="important">
-
-                <strong>
-                    Core idea
-                </strong>
-
-                A common-source amplifier converts an input voltage variation
-                into an output voltage variation through the MOSFET's
-                transconductance.
-
+            <div>
+                <a href="../index.html">Home</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../about.html">About</a>
             </div>
 
+        </div>
 
-            <!-- SECTION 1 -->
-
-            <h2>
-                1. Basic Common-Source Configuration
-            </h2>
-
-            <p>
-                In a common-source amplifier, the input is applied to the
-                gate and the output is taken from the drain. The source is
-                common to the input and output paths.
-            </p>
+    </header>
 
 
-            <!-- COMMON SOURCE IMAGE -->
+    <!-- =========================
+         HERO
+         ========================= -->
 
-            <div class="diagram">
+    <section class="hero">
 
-                <img
-                    src="https://www.allaboutcircuits.com/uploads/articles/Nick_2_21_2024_Figure_2.jpg"
-                    alt="NMOS common-source amplifier">
+        <div class="tag">
+            ANALOG DESIGN
+        </div>
 
-            </div>
+        <h1>
+            MOSFET <span>Common-Source</span> Amplifier
+        </h1>
 
+        <p>
+            Understanding the operation, gain, output resistance,
+            loading techniques and source degeneration of the
+            MOSFET common-source amplifier.
+        </p>
 
-            <p>
-                When the input voltage increases, the MOSFET gate-source
-                voltage increases. This increases the drain current.
-            </p>
+        <div class="author">
+            By Yuvaraj Dhayal D · Analog VLSI
+        </div>
 
-            <div class="equation">
-                VOUT = VDD − ID RD
-            </div>
-
-            <p>
-                Therefore, an increase in input voltage produces a decrease
-                in output voltage. The common-source amplifier consequently
-                provides approximately 180° phase inversion.
-            </p>
+    </section>
 
 
-            <!-- SECTION 2 -->
+    <!-- =========================
+         ARTICLE
+         ========================= -->
 
-            <h2>
-                2. Why MOSFET Biasing Is Important
-            </h2>
+    <main class="article">
 
-            <p>
-                For amplification, the MOSFET is normally biased in the
-                saturation region. The DC operating point is often called
-                the Q-point.
-            </p>
 
-            <p>
-                For an NMOS:
-            </p>
+        <!-- INTRODUCTION -->
 
-            <div class="equation">
-                VDS ≥ VGS − VTH
-            </div>
+        <h2>1. Introduction</h2>
 
-            <p>
-                Defining the overdrive voltage as:
-            </p>
+        <p>
+            The MOSFET common-source amplifier is one of the most
+            fundamental amplifier configurations in analog integrated
+            circuit design.
+        </p>
 
-            <div class="equation">
-                VOV = VGS − VTH
-            </div>
+        <p>
+            In a common-source amplifier, the
+            <strong>gate</strong> acts as the input terminal while the
+            <strong>drain</strong> acts as the output terminal.
+            The source terminal is common to the input and output
+            signals, which gives the topology its name.
+        </p>
+
+        <div class="info-box">
+
+            <h3>Key Idea</h3>
 
             <p>
-                the saturation condition becomes:
+                A small change in the input voltage produces a change
+                in drain current. This current variation is converted
+                into an output voltage through the load connected to
+                the drain.
             </p>
 
-            <div class="equation">
-                VDS ≥ VOV
-            </div>
+        </div>
 
-            <p>
-                Proper biasing allows the small input signal to produce
-                approximately linear variations around the operating point.
-            </p>
 
+        <!-- BASIC CIRCUIT -->
 
-            <!-- SECTION 3 -->
+        <h2>2. Basic Common-Source Amplifier</h2>
 
-            <h2>
-                3. MOSFET Transconductance
-            </h2>
+        <p>
+            The simplest common-source amplifier can be constructed
+            using an NMOS transistor with a resistor connected between
+            the drain and the supply.
+        </p>
 
-            <p>
-                The transconductance, gm, describes how effectively the
-                MOSFET converts a change in gate-source voltage into a
-                change in drain current.
-            </p>
 
-            <div class="equation">
-                gm = ∂ID / ∂VGS
-            </div>
+        <div class="diagram">
 
-            <p>
-                For the long-channel square-law model:
-            </p>
+<pre>
+                VDD
+                 |
+                RD
+                 |
+                 +--------- VOUT
+                 |
+                D
+             ┌───┐
+VIN ─────────┤ G │
+             │NMOS
+             ┤ S │
+             └───┘
+                 |
+                GND
+</pre>
 
-            <div class="equation">
-                gm = 2ID / VOV
-            </div>
+        </div>
 
-            <p>
-                A larger gm generally provides a larger voltage gain for
-                the same output resistance.
-            </p>
+        <div class="caption">
+            Basic NMOS common-source amplifier
+        </div>
 
 
-            <!-- SECTION 4 -->
+        <p>
+            When the input voltage increases, the MOSFET drain current
+            increases. The voltage drop across the drain resistor
+            therefore increases, causing the output voltage to decrease.
+        </p>
 
-            <h2>
-                4. Voltage Gain
-            </h2>
+        <p>
+            Therefore, the common-source amplifier provides
+            <strong>voltage inversion</strong>.
+        </p>
 
-            <p>
-                For a simple resistor-loaded common-source amplifier,
-                ignoring transistor output resistance:
-            </p>
 
-            <div class="equation">
-                Av ≈ −gm RD
-            </div>
+        <!-- OPERATION -->
 
-            <p>
-                The negative sign represents the phase inversion.
-            </p>
+        <h2>3. Operation of the Common-Source Amplifier</h2>
 
-            <p>
-                For example, if:
-            </p>
+        <p>
+            The operation can be understood by considering the MOSFET
+            operating regions.
+        </p>
 
-            <div class="equation">
-                gm = 2 mS
-                <br>
-                RD = 10 kΩ
-            </div>
+        <h3>Cutoff Region</h3>
 
-            <p>
-                then:
-            </p>
+        <p>
+            When the input voltage is below the threshold voltage,
+            the NMOS is approximately OFF.
+        </p>
 
-            <div class="equation">
-                Av ≈ −20 V/V
-            </div>
+        <div class="equation">
+            V<sub>GS</sub> &lt; V<sub>TH</sub>
+        </div>
 
+        <p>
+            The drain current is nearly zero and the output voltage
+            approaches VDD.
+        </p>
 
-            <!-- SECTION 5 -->
 
-            <h2>
-                5. Effect of MOSFET Output Resistance
-            </h2>
+        <h3>Saturation Region</h3>
 
-            <p>
-                A real MOSFET has finite output resistance due to channel
-                length modulation. Therefore, the output resistance of the
-                amplifier is not simply RD.
-            </p>
+        <p>
+            For amplification, the MOSFET is normally biased in the
+            saturation region.
+        </p>
 
-            <div class="equation">
-                Rout ≈ RD || ro
-            </div>
+        <div class="equation">
+            V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>TH</sub>
+        </div>
 
-            <p>
-                The voltage gain becomes:
-            </p>
+        <p>
+            In this region, a small variation in VGS produces a change
+            in drain current. This transconductance action is responsible
+            for voltage amplification.
+        </p>
 
-            <div class="equation">
-                Av ≈ −gm (RD || ro)
-            </div>
 
-            <p>
-                This leads to an important general relationship:
-            </p>
+        <h3>Linear / Triode Region</h3>
 
-            <div class="important">
+        <p>
+            When the drain voltage becomes sufficiently low, the
+            transistor enters the linear region.
+        </p>
 
-                <strong>
-                    Analog design intuition
-                </strong>
+        <p>
+            At this point, the amplifier no longer provides the desired
+            high-quality amplification.
+        </p>
 
-                Voltage gain can often be understood approximately as
-                transconductance multiplied by output resistance.
 
-            </div>
+        <!-- SMALL SIGNAL -->
 
-            <div class="equation">
-                Av ≈ −gm Rout
-            </div>
+        <h2>4. Small-Signal Model</h2>
 
+        <p>
+            For small variations around the bias point, the MOSFET can
+            be represented using a small-signal model.
+        </p>
 
-            <!-- SECTION 6 -->
+        <div class="info-box">
 
-            <h2>
-                6. Common-Source Amplifier with an Active Load
-            </h2>
+            <h3>Important Parameters</h3>
 
-            <p>
-                In integrated circuits, large resistors can consume significant
-                silicon area. MOSFETs can therefore be used as active loads.
-            </p>
+            <ul>
+                <li><strong>g<sub>m</sub></strong> — MOSFET transconductance</li>
+                <li><strong>r<sub>o</sub></strong> — MOSFET output resistance</li>
+                <li><strong>R<sub>D</sub></strong> — drain/load resistance</li>
+                <li><strong>V<sub>GS</sub></strong> — gate-source voltage</li>
+                <li><strong>V<sub>DS</sub></strong> — drain-source voltage</li>
+            </ul>
 
-            <div class="diagram">
+        </div>
 
-                 VDD
-                  |
-                PMOS
-                  |
-                  +------ VOUT
-                  |
-                NMOS
-                  |
-                 GND
 
-            </div>
+        <!-- GAIN -->
 
-            <p>
-                The output resistance is approximately:
-            </p>
+        <h2>5. Voltage Gain</h2>
 
-            <div class="equation">
-                Rout ≈ ron || rop
-            </div>
+        <p>
+            For a common-source amplifier with a resistive load, the
+            small-signal voltage gain can approximately be written as:
+        </p>
 
-            <p>
-                Hence the gain can be approximated as:
-            </p>
+        <div class="equation">
+            A<sub>V</sub> ≈ −g<sub>m</sub>(r<sub>o</sub> || R<sub>D</sub>)
+        </div>
 
-            <div class="equation">
-                Av ≈ −gmn (ron || rop)
-            </div>
+        <p>
+            If channel-length modulation is neglected, r<sub>o</sub>
+            becomes very large compared with the load resistance.
+            The gain then becomes approximately:
+        </p>
 
-            <p>
-                Active loads are particularly important in CMOS analog
-                integrated circuits because they can provide high output
-                resistance without requiring a physically large resistor.
-            </p>
+        <div class="equation">
+            A<sub>V</sub> ≈ −g<sub>m</sub>R<sub>D</sub>
+        </div>
 
+        <p>
+            The negative sign indicates that the output voltage is
+            <strong>180° out of phase</strong> with the input voltage.
+        </p>
 
-            <!-- SECTION 7 -->
 
-            <h2>
-                7. Diode-Connected MOSFET Load
-            </h2>
+        <!-- TRANSCONDUCTANCE -->
 
-            <p>
-                Another common configuration uses a MOSFET whose gate and
-                drain are connected together. This is known as a
-                diode-connected MOSFET.
-            </p>
+        <h2>6. MOSFET Transconductance</h2>
 
-            <div class="equation">
-                rdiode ≈ 1 / gm
-            </div>
+        <p>
+            Transconductance describes how effectively a change in
+            gate-source voltage controls the drain current.
+        </p>
 
-            <p>
-                The resulting load resistance is relatively small, so the
-                voltage gain is generally lower than that obtained with a
-                high-resistance active load.
-            </p>
+        <div class="equation">
+            g<sub>m</sub> = ∂I<sub>D</sub> / ∂V<sub>GS</sub>
+        </div>
 
+        <p>
+            For a long-channel MOSFET operating in saturation:
+        </p>
 
-            <!-- SECTION 8 -->
+        <div class="equation">
+            g<sub>m</sub> ≈ 2I<sub>D</sub> / V<sub>OV</sub>
+        </div>
 
-            <h2>
-                8. Source Degeneration
-            </h2>
+        <p>
+            where:
+        </p>
 
-            <p>
-                A resistor can be inserted between the source and ground.
-                This technique is called source degeneration.
-            </p>
+        <div class="equation">
+            V<sub>OV</sub> = V<sub>GS</sub> − V<sub>TH</sub>
+        </div>
 
-            <div class="diagram">
 
-                 VDD
-                  |
-                 RD
-                  |
-                  +------ VOUT
-                  |
-                 NMOS
-                  |
-                 RS
-                  |
-                 GND
-                  ↑
-                 VIN
+        <!-- OUTPUT RESISTANCE -->
 
-            </div>
+        <h2>7. Input and Output Resistance</h2>
 
-            <p>
-                Source degeneration introduces local negative feedback.
-                When the drain current increases, the voltage across RS
-                increases, which reduces the effective VGS variation.
-            </p>
+        <h3>Input Resistance</h3>
 
-            <p>
-                Ignoring ro, the approximate voltage gain becomes:
-            </p>
+        <p>
+            Since the MOSFET gate ideally draws no DC current,
+            the input resistance is very high.
+        </p>
 
-            <div class="equation">
-                Av ≈ −gm RD / (1 + gm RS)
-            </div>
+        <div class="equation">
+            R<sub>IN</sub> → ∞
+        </div>
 
 
-            <!-- SECTION 9 -->
+        <h3>Output Resistance</h3>
 
-            <h2>
-                9. Gain vs Linearity
-            </h2>
+        <p>
+            For a common-source amplifier with a drain resistor:
+        </p>
 
-            <p>
-                Source degeneration reduces voltage gain, but it can improve
-                linearity and make the gain less sensitive to transistor
-                parameter variations.
-            </p>
+        <div class="equation">
+            R<sub>OUT</sub> ≈ r<sub>o</sub> || R<sub>D</sub>
+        </div>
+
+
+        <!-- LOAD TYPES -->
+
+        <h2>8. Different Types of Loads</h2>
+
+        <p>
+            The performance of the common-source amplifier strongly
+            depends on the type of load connected to the drain.
+        </p>
+
+
+        <div class="table-container">
 
             <table>
 
                 <tr>
-                    <th>Without degeneration</th>
-                    <th>With degeneration</th>
+                    <th>Load Type</th>
+                    <th>Main Characteristic</th>
                 </tr>
 
                 <tr>
-                    <td>Higher gain</td>
-                    <td>Lower gain</td>
+                    <td>Resistive Load</td>
+                    <td>Simple but consumes silicon area for large resistance</td>
                 </tr>
 
                 <tr>
-                    <td>More nonlinear</td>
-                    <td>Improved linearity</td>
+                    <td>Diode-Connected MOSFET</td>
+                    <td>Compact but provides relatively low output resistance</td>
                 </tr>
 
                 <tr>
-                    <td>Higher sensitivity to device parameters</td>
-                    <td>More predictable behavior</td>
+                    <td>Current-Source Load</td>
+                    <td>Higher gain due to larger output resistance</td>
                 </tr>
 
                 <tr>
-                    <td>Less local feedback</td>
-                    <td>Negative feedback</td>
+                    <td>Active MOSFET Load</td>
+                    <td>High gain but can introduce nonlinear behavior</td>
                 </tr>
 
             </table>
 
+        </div>
+
+
+        <!-- DIODE LOAD -->
+
+        <h2>9. Diode-Connected MOSFET Load</h2>
+
+        <p>
+            A MOSFET can be configured as a diode-connected load by
+            connecting its gate and drain together.
+        </p>
+
+        <div class="diagram">
+
+<pre>
+              VDD
+               |
+              PMOS
+           G ──┤
+           |   |
+           └───┤
+               |
+               +------ VOUT
+               |
+              NMOS
+               |
+              GND
+
+              ↑
+             VIN
+</pre>
+
+        </div>
+
+        <p>
+            The diode-connected transistor provides a relatively low
+            output resistance. As a result, this configuration generally
+            provides lower gain than a high-output-resistance current-source
+            load.
+        </p>
+
+
+        <!-- CURRENT SOURCE -->
+
+        <h2>10. Current-Source Load</h2>
+
+        <p>
+            A current-source load can be implemented using another
+            MOSFET biased with a fixed gate voltage.
+        </p>
+
+        <p>
+            Since both MOSFETs contribute output resistance, the
+            approximate voltage gain is:
+        </p>
+
+        <div class="equation">
+            A<sub>V</sub> ≈ −g<sub>m,n</sub>
+            (r<sub>o,n</sub> || r<sub>o,p</sub>)
+        </div>
+
+        <p>
+            The larger effective output resistance can provide
+            significantly higher voltage gain.
+        </p>
+
+
+        <!-- ACTIVE LOAD -->
+
+        <h2>11. Active Load</h2>
+
+        <p>
+            In integrated CMOS circuits, MOSFETs can replace large
+            resistors and act as active loads.
+        </p>
+
+        <p>
+            For an active-load configuration, both NMOS and PMOS
+            devices contribute to the small-signal behavior.
+        </p>
+
+        <div class="equation">
+            A<sub>V</sub> ≈ −(g<sub>m,n</sub> + g<sub>m,p</sub>)
+            (r<sub>o,n</sub> || r<sub>o,p</sub>)
+        </div>
+
+        <p>
+            This topology is particularly important in CMOS analog
+            integrated circuits because it can achieve high gain without
+            requiring a physically large resistor.
+        </p>
+
+
+        <!-- SOURCE DEGENERATION -->
+
+        <h2>12. Source Degeneration</h2>
+
+        <p>
+            A resistor can be inserted into the source terminal of
+            the MOSFET to improve linearity. This technique is called
+            <strong>source degeneration</strong>.
+        </p>
+
+        <div class="diagram">
+
+<pre>
+              VDD
+               |
+              RD
+               |
+               +------ VOUT
+               |
+              D
+           ┌──────┐
+VIN ───────┤  NMOS│
+           └──┬───┘
+              S
+              |
+             RS
+              |
+             GND
+</pre>
+
+        </div>
+
+        <p>
+            Source degeneration introduces local negative feedback.
+            The source voltage changes in response to the drain current,
+            reducing the effective variation of VGS.
+        </p>
+
+        <p>
+            The major trade-off is:
+        </p>
+
+        <div class="info-box">
+
+            <h3>Gain vs Linearity</h3>
+
             <p>
-                This is an important analog design trade-off:
+                Increasing source degeneration generally
+                <strong>improves linearity</strong> but
+                <strong>reduces voltage gain</strong>.
             </p>
 
-            <div class="equation">
-                More degeneration → Lower gain + Better linearity
-            </div>
+        </div>
 
 
-            <!-- SECTION 10 -->
+        <!-- DESIGN TRADEOFF -->
 
-            <h2>
-                10. Frequency Response
-            </h2>
+        <h2>13. Important Design Trade-offs</h2>
 
-            <p>
-                At high frequencies, parasitic capacitances become important.
-                The main capacitances include:
-            </p>
+        <ul>
+
+            <li>
+                Increasing <strong>g<sub>m</sub></strong> generally
+                increases voltage gain.
+            </li>
+
+            <li>
+                Increasing the load resistance increases gain but can
+                reduce the output swing.
+            </li>
+
+            <li>
+                Higher output resistance generally helps achieve higher gain.
+            </li>
+
+            <li>
+                Source degeneration improves linearity but reduces gain.
+            </li>
+
+            <li>
+                MOSFET active loads are useful for achieving high gain
+                without large passive resistors.
+            </li>
+
+            <li>
+                The transistor must remain in the appropriate operating
+                region for proper amplification.
+            </li>
+
+        </ul>
+
+
+        <!-- ANALOG DESIGN CONNECTION -->
+
+        <h2>14. Why Common-Source Amplifiers Matter in Analog IC Design</h2>
+
+        <p>
+            The common-source stage is one of the fundamental building
+            blocks used to understand more complex analog circuits.
+        </p>
+
+        <p>
+            Concepts such as <strong>transconductance</strong>,
+            <strong>output resistance</strong>,
+            <strong>gain</strong>, <strong>biasing</strong>,
+            <strong>frequency response</strong>, and
+            <strong>feedback</strong> all appear in more advanced
+            analog blocks.
+        </p>
+
+        <p>
+            Understanding the common-source stage therefore provides a
+            strong foundation for studying operational amplifiers,
+            differential amplifiers, current mirrors, bandgap references,
+            LDOs and other analog IC building blocks.
+        </p>
+
+
+        <!-- SUMMARY -->
+
+        <h2>15. Summary</h2>
+
+        <div class="info-box">
+
+            <h3>Key Takeaways</h3>
 
             <ul>
 
                 <li>
-                    Cgs — gate-to-source capacitance
+                    The gate is the input and the drain is the output.
                 </li>
 
                 <li>
-                    Cgd — gate-to-drain capacitance
+                    The common-source amplifier provides voltage inversion.
                 </li>
 
                 <li>
-                    Cdb — drain-to-body capacitance
+                    The approximate gain is
+                    −g<sub>m</sub>(r<sub>o</sub> || R<sub>D</sub>).
+                </li>
+
+                <li>
+                    Higher transconductance and output resistance generally
+                    increase gain.
+                </li>
+
+                <li>
+                    Active loads are widely used in CMOS analog IC design.
+                </li>
+
+                <li>
+                    Source degeneration improves linearity at the expense
+                    of gain.
                 </li>
 
             </ul>
 
-            <p>
-                The gate-to-drain capacitance is particularly important
-                because of the Miller effect. The effective input capacitance
-                can increase substantially when the amplifier has significant
-                voltage gain.
-            </p>
+        </div>
 
-            <p>
-                Therefore, increasing gain does not always mean improving
-                the overall amplifier. Gain, bandwidth and stability must be
-                considered together.
-            </p>
 
+        <!-- REFERENCE -->
 
-            <!-- SECTION 11 -->
+        <h2>Reference</h2>
 
-            <h2>
-                11. Design Parameters to Check
-            </h2>
+        <p>
+            This article was prepared using the MOSFET common-source
+            amplifier concepts discussed in the
+            All About Circuits technical article.
+        </p>
 
-            <ul>
+        <p>
+            <a
+                href="https://www.allaboutcircuits.com/technical-articles/introduction-to-the-mosfet-common-source-amplifier/"
+                target="_blank"
+                style="color:#ff00aa;"
+            >
+                Read the original reference →
+            </a>
+        </p>
 
-                <li>
-                    DC operating point
-                </li>
 
-                <li>
-                    Drain current
-                </li>
+    </main>
 
-                <li>
-                    VGS and VDS
-                </li>
 
-                <li>
-                    MOSFET operating region
-                </li>
+    <!-- =========================
+         FOOTER
+         ========================= -->
 
-                <li>
-                    Transconductance gm
-                </li>
+    <footer>
 
-                <li>
-                    Output resistance ro
-                </li>
+        © 2026 <span>Yuvaraj Dhayal D</span> · Analog VLSI Blog
 
-                <li>
-                    Voltage gain
-                </li>
+    </footer>
 
-                <li>
-                    Output swing
-                </li>
-
-                <li>
-                    Linearity
-                </li>
-
-                <li>
-                    Power consumption
-                </li>
-
-                <li>
-                    Bandwidth
-                </li>
-
-                <li>
-                    Stability
-                </li>
-
-            </ul>
-
-
-            <!-- SECTION 12 -->
-
-            <h2>
-                12. Why the Common-Source Amplifier Matters
-            </h2>
-
-            <p>
-                The common-source stage appears throughout analog IC design.
-                Understanding it provides the foundation for analysing more
-                complex circuits such as:
-            </p>
-
-            <ul>
-
-                <li>
-                    Differential amplifiers
-                </li>
-
-                <li>
-                    Operational amplifiers
-                </li>
-
-                <li>
-                    OTAs
-                </li>
-
-                <li>
-                    Comparators
-                </li>
-
-                <li>
-                    Cascode amplifiers
-                </li>
-
-                <li>
-                    Current mirrors
-                </li>
-
-                <li>
-                    Active filters
-                </li>
-
-                <li>
-                    Multi-stage amplifiers
-                </li>
-
-            </ul>
-
-            <p>
-                Many advanced CMOS analog circuits can ultimately be understood
-                by breaking them down into transistor transconductance,
-                output resistance and feedback mechanisms.
-            </p>
-
-
-            <!-- KEY TAKEAWAYS -->
-
-            <h2>
-                Key Takeaways
-            </h2>
-
-            <div class="takeaways">
-
-                <ul>
-
-                    <li>
-                        The common-source amplifier converts gate-voltage
-                        variations into drain-current variations.
-                    </li>
-
-                    <li>
-                        A resistor or active load converts the current
-                        variation into an output-voltage variation.
-                    </li>
-
-                    <li>
-                        The output is inverted relative to the input.
-                    </li>
-
-                    <li>
-                        MOSFET biasing is essential for maintaining the
-                        desired operating region.
-                    </li>
-
-                    <li>
-                        Higher gm generally increases gain.
-                    </li>
-
-                    <li>
-                        Higher output resistance generally increases gain.
-                    </li>
-
-                    <li>
-                        Active loads can provide high output resistance
-                        in CMOS integrated circuits.
-                    </li>
-
-                    <li>
-                        Source degeneration introduces negative feedback
-                        and improves linearity at the cost of gain.
-                    </li>
-
-                    <li>
-                        Frequency response is affected strongly by
-                        parasitic capacitances and the Miller effect.
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- FINAL PERSPECTIVE -->
-
-            <h2>
-                Final Perspective
-            </h2>
-
-            <p>
-                The common-source amplifier is one of the best circuits for
-                developing analog design intuition. Rather than memorizing
-                only the gain equation, it is more useful to understand the
-                complete signal path:
-            </p>
-
-            <div class="equation">
-                VIN → VGS → ΔID → ΔVOUT
-            </div>
-
-            <p>
-                Once this relationship becomes intuitive, more advanced
-                CMOS analog circuits such as differential pairs, OTAs,
-                cascodes and operational amplifiers become much easier
-                to analyse and design.
-            </p>
-
-
-            <!-- REFERENCE -->
-
-            <div class="reference">
-
-                <strong>
-                    Reference
-                </strong>
-
-                <p>
-                    Technical concepts were cross-checked with the following
-                    introductory reference:
-                </p>
-
-                <p>
-
-                    <a
-                        href="https://www.allaboutcircuits.com/technical-articles/introduction-to-the-mosfet-common-source-amplifier/"
-                        target="_blank"
-                        rel="noopener noreferrer">
-
-                        Introduction to the MOSFET Common-Source Amplifier —
-                        All About Circuits
-
-                    </a>
-
-                </p>
-
-            </div>
-
-
-        </article>
-
-    </div>
 
 </body>
 
