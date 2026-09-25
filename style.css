@@ -515,6 +515,17 @@ article a {
   h1 {
     font-size: 26px;
   }
+  .diagram {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.diagram img {
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    display: inline-block;
+}
 
   .section-title {
     font-size: 21px;
