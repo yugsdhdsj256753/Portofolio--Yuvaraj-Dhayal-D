@@ -620,7 +620,106 @@
 
             </p>
 
+<h2>
+    Large-Signal Analysis of CS Amplifier
+</h2>
+            <p>
+    When we gradually increase <strong>V<sub>IN</sub></strong> from zero,
+    the NMOS transistor <strong>M1</strong> remains OFF. Therefore, almost
+    no drain current flows and the output voltage stays close to
+    <strong>V<sub>DD</sub></strong>. This continues until
+    <strong>V<sub>IN</sub></strong> approaches the threshold voltage
+    <strong>V<sub>TH</sub></strong>.
+</p>
 
+<p>
+    As <strong>V<sub>IN</sub></strong> approaches
+    <strong>V<sub>TH</sub></strong>, M1 starts conducting. The drain current
+    <strong>I<sub>D</sub></strong> produces a voltage drop across the load
+    resistor <strong>R<sub>L</sub></strong>. As a result, the output voltage
+    <strong>V<sub>OUT</sub></strong> begins to decrease from
+    <strong>V<sub>DD</sub></strong>.
+</p>
+
+<p>
+    Once the transistor is ON, it operates in the <strong>saturation
+    region</strong> as long as the saturation condition is satisfied.
+    For an NMOS transistor, this condition is:
+</p>
+
+<div class="equation">
+
+    V<sub>DS</sub> ≥ V<sub>GS</sub> − V<sub>TH</sub>
+
+</div>
+
+            
+<p>
+    As <strong>V<sub>IN</sub></strong> continues to increase, the drain
+    current also increases. This causes a larger voltage drop across
+    <strong>R<sub>L</sub></strong>, so <strong>V<sub>OUT</sub></strong>
+    continues to fall.
+</p>
+
+<p>
+    The transistor remains in saturation until the boundary between
+    saturation and the linear (triode) region is reached. At this point:
+</p>
+
+<div class="equation">
+
+    V<sub>OUT</sub> = V<sub>IN</sub> − V<sub>TH</sub>
+
+</div>
+
+<p>
+    If <strong>V<sub>IN</sub></strong> is increased further,
+    <strong>M1</strong> enters the <strong>linear (triode) region</strong>.
+    The output voltage then continues to decrease and can approach zero
+    depending on the circuit conditions.
+</p>
+
+<div class="info-box">
+
+    <h3>
+        Why Saturation is Important
+    </h3>
+
+    <p>
+        For a common-source amplifier, the MOSFET is normally biased in
+        the <strong>saturation region</strong> because this is where the
+        transistor provides useful transconductance for voltage
+        amplification. If the transistor moves into the linear region,
+        the amplifier no longer operates in its intended high-gain
+        condition.
+    </p>
+
+</div>
+
+<p>
+    Therefore, the useful output range of the common-source amplifier can
+    be considered mainly within the region where <strong>M1</strong>
+    remains saturated. The upper end of this range occurs when the
+    transistor just begins to conduct, while the lower end occurs when
+    the transistor reaches the saturation-to-linear boundary.
+</p>
+
+<p>
+    The output voltage is given by:
+</p>
+
+<div class="equation">
+
+    V<sub>OUT</sub> = V<sub>DD</sub> − I<sub>D</sub>R<sub>L</sub>
+
+</div>
+
+<p>
+    From this expression, we can see that the voltage drop across the load
+    is determined by the product <strong>I<sub>D</sub>R<sub>L</sub></strong>.
+    Therefore, controlling the bias current and load resistance is
+    important when we want to obtain a larger usable output range.
+</p>
 
             <!-- =================================================
                  3. MOSFET OPERATING REGION
