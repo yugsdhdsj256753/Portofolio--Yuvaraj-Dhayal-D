@@ -453,14 +453,23 @@
                 font-size: 15px;
             }
 
-            .diagram {
-                padding: 25px 10px;
-            }
+     .diagram {
+    padding: 25px 10px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
 
-            .diagram pre {
-                font-size: 12px;
-            }
+.diagram img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
+.diagram pre {
+    font-size: 12px;
+}
             .equation {
                 font-size: 15px;
             }
@@ -474,8 +483,6 @@
 
 <body>
 
-
-  
 
     <!-- =====================================================
          BLOG
