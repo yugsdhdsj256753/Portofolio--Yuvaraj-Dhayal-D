@@ -699,6 +699,81 @@ footer {
     margin-bottom: 44px;
   }
 }
+  
+/* ========================================
+   OUTER BOX FOR EVERY MAIN SECTION
+   ======================================== */
+
+main > section {
+    margin: 30px 0;
+    padding: 28px;
+    border: 1px solid #d8dce3;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* Subtle hover effect */
+main > section:hover {
+    border-color: #b8c1ce;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* Keep section headings aligned */
+main > section > .section-title {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+/* About section layout */
+main > section.intro {
+    padding: 32px;
+}
+
+/* Coursework boxes inside the coursework section */
+.coursework-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* Achievement cards inside the achievements section */
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* Responsive layout */
+@media (max-width: 800px) {
+    main > section {
+        padding: 22px;
+    }
+
+    .coursework-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    main > section {
+        margin: 20px 0;
+        padding: 18px;
+        border-radius: 9px;
+    }
+
+    main > section.intro {
+        padding: 20px;
+    }
+
+    .coursework-grid,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
   .section-title {
     font-size: 21px;
